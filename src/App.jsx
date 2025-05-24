@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom';
+import {Navigate, Route, Routes} from 'react-router-dom';
 import {LoginPage} from './pages/login-page';
 import {HomePage} from './pages/home-page';
 import {SignUpPage} from './pages/signup-page';
@@ -11,7 +11,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
+        <Route path='*' element={<Navigate to='/login' replace />} />
         <Route element={<AuthLayout />}>
+          <Route path='/' element={<LoginPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<SignUpPage />} />
         </Route>
