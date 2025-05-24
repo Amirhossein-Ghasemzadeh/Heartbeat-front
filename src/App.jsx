@@ -11,15 +11,15 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route path='*' element={<Navigate to='/login' replace />} />
+        <Route path='/' element={<Navigate to='/login' replace />} />
         <Route element={<AuthLayout />}>
-          <Route path='/' element={<LoginPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<SignUpPage />} />
         </Route>
         <Route element={<AppLayout />}>
           <Route path='/home/:id' element={<HomePage />} />
         </Route>
+        <Route path='*' element={<Navigate to='/login' replace />} />
       </Routes>
     </QueryClientProvider>
   );
