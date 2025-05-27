@@ -17,7 +17,7 @@ export const HeartbeatList = () => {
             `${data?.heartbeats?.length > 1 ? 's' : ''}`
           : ' No recorded heartbeats yet.'}
       </span>
-      {data?.heartbeats?.map((card) => (
+      {data?.heartbeat.reverse().map((card) => (
         <HeartbeatCard key={card.timestamp} {...card} />
       ))}
     </div>
